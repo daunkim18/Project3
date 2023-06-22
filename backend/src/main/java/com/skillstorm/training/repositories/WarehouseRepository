@@ -1,0 +1,5 @@
+@Repository
+public interface WarehouseRepository extends JpaRepository<Warehouse, Long> {
+    // Add custom query methods if needed
+}
+

@@ -1,0 +1,5 @@
+@Repository
+public interface ItemRepository extends JpaRepository<Item, Long> {
+    // Add custom query methods if needed
+}
+

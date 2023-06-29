@@ -13,44 +13,47 @@ public class Item {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long id;
+	private Long itemId;
 
-	private String name;
+	private String itemName;
 
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "warehouse_id")
 	private int warehouseId;
-	private String type;
-	private String soldBy;
+	
+	
+	private int quantity;
+	private int typeId;
+	private int popularity;
 
 	public Item() {
 		super();
 	}
 
-	public Item(Long id, String name, int warehouseId, String type, String soldBy, Warehouse warehouse) {
+	public Item(Long itemId, String itemName, int warehouseId, int typeId, int quantity, int popularity) {
 		super();
-		this.id = id;
-		this.name = name;
+		this.itemId = itemId;
+		this.itemName = itemName;
 		this.warehouseId = warehouseId;
-		this.type = type;
-		this.soldBy = soldBy;
+		this.typeId = typeId;
+		this.quantity = quantity;
 
 	}
 
-	public Long getId() {
-		return id;
+	public Long getitemId() {
+		return itemId;
 	}
 
-	public void setId(Long id) {
-		this.id = id;
+	public void setId(Long itemId) {
+		this.itemId = itemId;
 	}
 
-	public String getName() {
-		return name;
+	public String getItemName() {
+		return itemName;
 	}
 
-	public void setName(String name) {
-		this.name = name;
+	public void setItemName(String itemName) {
+		this.itemName = itemName;
 	}
 
 	public int getWarehouseId() {
@@ -61,20 +64,28 @@ public class Item {
 		this.warehouseId = warehouseId;
 	}
 
-	public String getType() {
-		return type;
+	public int getType() {
+		return typeId;
 	}
 
-	public void setType(String type) {
-		this.type = type;
+	public void setType(int typeId) {
+		this.typeId = typeId;
 	}
 
-	public String getSoldBy() {
-		return soldBy;
+	public int getSoldBy() {
+		return quantity;
 	}
 
-	public void setSoldBy(String soldBy) {
-		this.soldBy = soldBy;
+	public void setSoldBy(int quantity) {
+		this.quantity = quantity;
+	}
+
+	public int getPopularity() {
+		return popularity;
+	}
+
+	public void setPopularity(int popularity) {
+		this.popularity = popularity;
 	}
 
 	

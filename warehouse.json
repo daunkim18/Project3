@@ -1,0 +1,5 @@
+[{"warehouse_id":6, "street_address":"123 Main St", "city":"New York", "state":"NY", "capacity":1000},
+ {"warehouse_id":7, "street_address":"456 Elm St", "city":"Los Angeles", "state":"CA", "capacity":2000},
+ {"warehouse_id":8, "street_address":"789 Oak St", "city":"Chicago", "state":"IL", "capacity":1500},
+ {"warehouse_id":9, "street_address":"321 Pine St", "city":"Houston", "state":"TX", "capacity":1800},
+ {"warehouse_id":10, "street_address":"987 Maple St", "city":"Seattle", "state":"WA", "capacity":1200}]

@@ -1,0 +1,5 @@
+[{"order_id":1, "customer_id":1, "order_date":"2023-06-01 00:00:00", "item_id":1, "price":10.99, "process_date":"2023-06-02 00:00:00"},
+ {"order_id":2, "customer_id":2, "order_date":"2023-06-03 00:00:00", "item_id":3, "price":8.99, "process_date":"2023-06-04 00:00:00"},
+ {"order_id":3, "customer_id":1, "order_date":"2023-06-05 00:00:00", "item_id":2, "price":15.99, "process_date":"2023-06-06 00:00:00"},
+ {"order_id":4, "customer_id":3, "order_date":"2023-06-07 00:00:00", "item_id":5, "price":12.99, "process_date":"2023-06-08 00:00:00"},
+ {"order_id":5, "customer_id":2, "order_date":"2023-06-09 00:00:00", "item_id":4, "price":6.99, "process_date":"2023-06-10 00:00:00"}]

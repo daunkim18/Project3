@@ -1,0 +1,10 @@
+[{"item_id":1, "item_name":"Chocolate Bar", "type_id":1, "quantity":100, "warehouse_id":1, "popularity":5},
+ {"item_id":2, "item_name":"Gummy Bears", "type_id":2, "quantity":200, "warehouse_id":1, "popularity":4},
+ {"item_id":3, "item_name":"Lollipop", "type_id":3, "quantity":150, "warehouse_id":2, "popularity":3},
+ {"item_id":4, "item_name":"Sour Candy", "type_id":1, "quantity":50, "warehouse_id":2, "popularity":5},
+ {"item_id":5, "item_name":"Jelly Beans", "type_id":2, "quantity":300, "warehouse_id":3, "popularity":4},
+ {"item_id":6, "item_name":"Caramel Candy", "type_id":1, "quantity":50, "warehouse_id":1, "popularity":3},
+ {"item_id":7, "item_name":"Hard Candy", "type_id":3, "quantity":100, "warehouse_id":2, "popularity":4},
+ {"item_id":8, "item_name":"Licorice", "type_id":2, "quantity":75, "warehouse_id":2, "popularity":2},
+ {"item_id":9, "item_name":"Mints", "type_id":1, "quantity":200, "warehouse_id":3, "popularity":5},
+ {"item_id":10, "item_name":"Sour Gummies", "type_id":2, "quantity":150, "warehouse_id":3, "popularity":4}]

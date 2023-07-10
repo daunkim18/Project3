@@ -8,58 +8,11 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api")
-public class CandyWarehouseController {
+public class WarehouseController {
 
     @Autowired
-    private CandyWarehouseService candyWarehouseService;
+    private WarehouseService candyWarehouseService;
 
-    // Customer Endpoints
-
-    @GetMapping("/customers")
-    public ResponseEntity<List<Customer>> getAllCustomers() {
-        List<Customer> customers = candyWarehouseService.getAllCustomers();
-        return ResponseEntity.ok(customers);
-    }
-
-    @GetMapping("/customers/{id}")
-    public ResponseEntity<Customer> getCustomerById(@PathVariable("id") int id) {
-        Customer customer = candyWarehouseService.getCustomerById(id);
-        if (customer != null) {
-            return ResponseEntity.ok(customer);
-        } else {
-            return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
-        }
-    }
-
-    @PostMapping("/customers")
-    public ResponseEntity<Customer> createCustomer(@RequestBody Customer customer) {
-        Customer createdCustomer = candyWarehouseService.createCustomer(customer);
-        return ResponseEntity.status(HttpStatus.CREATED).body(createdCustomer);
-    }
-
-    // Order Endpoints
-
-    @GetMapping("/orders")
-    public ResponseEntity<List<Order>> getAllOrders() {
-        List<Order> orders = candyWarehouseService.getAllOrders();
-        return ResponseEntity.ok(orders);
-    }
-
-    @GetMapping("/orders/{id}")
-    public ResponseEntity<Order> getOrderById(@PathVariable("id") int id) {
-        Order order = candyWarehouseService.getOrderById(id);
-        if (order != null) {
-            return ResponseEntity.ok(order);
-        } else {
-            return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
-        }
-    }
-
-    @PostMapping("/orders")
-    public ResponseEntity<Order> createOrder(@RequestBody Order order) {
-        Order createdOrder = candyWarehouseService.createOrder(order);
-        return ResponseEntity.status(HttpStatus.CREATED).body(createdOrder);
-    }
 
     // Item Endpoints
 

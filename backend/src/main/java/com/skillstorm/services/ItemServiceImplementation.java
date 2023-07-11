@@ -1,10 +1,12 @@
-package services;
+package com.skillstorm.services;
+
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.skillstorm.models.Item;
-import com.skillstorm.training.repositories.ItemRepository;
+import com.skillstorm.repositories.ItemRepository;
 
 @Service
 public class ItemServiceImplementation implements ItemService{
@@ -30,10 +32,23 @@ public class ItemServiceImplementation implements ItemService{
 		return repo.save(item);
 	}
 
+
 	@Override
-	public void delete(Item item) {
-		repo.delete(item);
+	public Iterable<Item> findItemsByWarehouseId(Long id) {
 		
+		return repo.findItemsByWarehouseId(id);
+	}
+
+	@Override
+	public void delete(Long id) {
+		repo.deleteById(id);
+		
+	}
+
+	@Override
+	public Item create(Item item) {
+		// TODO Auto-generated method stub
+		return repo.save(item);
 	}
 
 }

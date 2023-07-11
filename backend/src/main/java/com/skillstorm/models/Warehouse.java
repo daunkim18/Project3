@@ -28,6 +28,54 @@ public class Warehouse {
 		this.capacity = capacity;
 		this.inventory = inventory;
 	}
+
+	public Long getWarehouseId() {
+		return warehouseId;
+	}
+
+	public void setWarehouseId(Long warehouseId) {
+		this.warehouseId = warehouseId;
+	}
+
+	public String getStreetAddress() {
+		return streetAddress;
+	}
+
+	public void setStreetAddress(String streetAddress) {
+		this.streetAddress = streetAddress;
+	}
+
+	public String getCity() {
+		return city;
+	}
+
+	public void setCity(String city) {
+		this.city = city;
+	}
+
+	public String getState() {
+		return state;
+	}
+
+	public void setState(String state) {
+		this.state = state;
+	}
+
+	public int getCapacity() {
+		return capacity;
+	}
+
+	public void setCapacity(int capacity) {
+		this.capacity = capacity;
+	}
+
+	public int getInventory() {
+		return inventory;
+	}
+
+	public void setInventory(int inventory) {
+		this.inventory = inventory;
+	}
     
     
 

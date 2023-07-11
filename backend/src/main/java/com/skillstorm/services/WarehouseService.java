@@ -1,4 +1,6 @@
-package services;
+package com.skillstorm.services;
+
+import java.util.List;
 
 import com.skillstorm.models.Warehouse;
 
@@ -9,5 +11,7 @@ public interface WarehouseService {
 	
 	public Warehouse save(Warehouse warehouse);
 	
-	public void delete(Warehouse warehouse);
+	public void delete(Long warehouseId);
+
+	public Warehouse create(Warehouse warehouse);
 }

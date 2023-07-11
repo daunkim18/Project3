@@ -19,18 +19,18 @@ public class Item {
 
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "warehouse_id")
-	private int warehouseId;
+	private Long warehouseId;
 	
 	
 	private int quantity;
-	private int typeId;
+	private Long typeId;
 	private int popularity;
 
 	public Item() {
 		super();
 	}
 
-	public Item(Long itemId, String itemName, int warehouseId, int typeId, int quantity, int popularity) {
+	public Item(Long itemId, String itemName, Long warehouseId, Long typeId, int quantity, int popularity) {
 		super();
 		this.itemId = itemId;
 		this.itemName = itemName;
@@ -56,19 +56,19 @@ public class Item {
 		this.itemName = itemName;
 	}
 
-	public int getWarehouseId() {
+	public Long getWarehouseId() {
 		return warehouseId;
 	}
 
-	public void setWarehouseId(int warehouseId) {
+	public void setWarehouseId(Long warehouseId) {
 		this.warehouseId = warehouseId;
 	}
 
-	public int getType() {
+	public Long getType() {
 		return typeId;
 	}
 
-	public void setType(int typeId) {
+	public void setType(Long typeId) {
 		this.typeId = typeId;
 	}
 

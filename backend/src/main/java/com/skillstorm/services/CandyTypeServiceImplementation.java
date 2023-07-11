@@ -1,10 +1,12 @@
-package services;
+package com.skillstorm.services;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.skillstorm.models.CandyType;
-import com.skillstorm.training.repositories.CandyTypeRepository;
+import com.skillstorm.repositories.CandyTypeRepository;
 
+@Service
 public class CandyTypeServiceImplementation implements CandyTypeService{
 	@Autowired
 	private CandyTypeRepository repo;
@@ -28,9 +30,15 @@ public class CandyTypeServiceImplementation implements CandyTypeService{
 	}
 
 	@Override
-	public void delete(CandyType candyType) {
-		repo.delete(candyType);
+	public void delete(Long typeId) {
+		repo.deleteById(typeId);
 		
+	}
+
+	@Override
+	public CandyType create(CandyType candyType) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }

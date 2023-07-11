@@ -1,4 +1,4 @@
-package com.skillstorm.training.repositories;
+package com.skillstorm.repositories;
 
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;

@@ -1,10 +1,12 @@
-package services;
+package com.skillstorm.services;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.skillstorm.models.Warehouse;
-import com.skillstorm.training.repositories.WarehouseRepository;
+import com.skillstorm.repositories.WarehouseRepository;
 
+@Service
 public class WarehouseServiceImplementation implements WarehouseService {
 
 	@Autowired
@@ -29,9 +31,15 @@ public class WarehouseServiceImplementation implements WarehouseService {
 	}
 
 	@Override
-	public void delete(Warehouse warehouse) {
-		repo.delete(warehouse);
+	public void delete(Long warehouseId) {
+		repo.deleteById(warehouseId);
 		
+	}
+
+	@Override
+	public Warehouse create(Warehouse warehouse) {
+		// TODO Auto-generated method stub
+		return repo.save(warehouse);
 	}
 
 }

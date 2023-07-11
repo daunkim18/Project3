@@ -13,6 +13,8 @@ public class CandyType {
 	 private Long typeId;
 	 private String description;
 	 
+	 
+	 
 	 public CandyType() {}
 
 	public CandyType(long typeId, String description) {

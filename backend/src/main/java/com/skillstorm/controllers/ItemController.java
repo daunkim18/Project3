@@ -13,11 +13,11 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.skillstorm.models.Item;
-import com.skillstorm.models.Warehouse;
 import com.skillstorm.services.ItemService;
 
 
@@ -49,10 +49,21 @@ public class ItemController {
 			return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
 		}
 	}
+	//We will have a path variable and request params
 	
 	@GetMapping("/warehouses/{id}/items")
-	public Iterable<Item> getItemByWarehouseId(@PathVariable("id") Long id) {
+	public Iterable<Item> getItemByWarehouseId(@PathVariable("id") Long id, @RequestParam(defaultValue = "all") String type) {
 		return service.findItemsByWarehouseId(id);
+	}
+	
+	@GetMapping("/warehouses/{id}/items/search")
+	public Iterable<Item> getItemBySearch(@PathVariable("id") Long id, @RequestParam(defaultValue = "all") String type) {
+		return service.findByWarehouseIdAndCandyTypeDescription(id, type);
+	}
+	
+	@GetMapping("/description")
+	public Iterable<Item> getItemByDescription(@RequestParam(defaultValue = "all") String type) {
+		return service.findByCandyTypeDescription(type);
 	}
 
 	@PostMapping
@@ -74,4 +85,6 @@ public class ItemController {
     public void delete(@PathVariable("id") Long id) {
     	service.delete(id);
 	}
+	
+	
 }

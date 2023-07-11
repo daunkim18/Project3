@@ -51,4 +51,16 @@ public class ItemServiceImplementation implements ItemService{
 		return repo.save(item);
 	}
 
+	@Override
+	public Iterable<Item> findByCandyTypeDescription(String type) {
+		// TODO Auto-generated method stub
+		return repo.findByCandyType_Description(type);
+	}
+
+	@Override
+	public Iterable<Item> findByWarehouseIdAndCandyTypeDescription(Long id, String type) {
+		// TODO Auto-generated method stub
+		return repo.findByWarehouseIdAndCandyType_Description(id, type);
+	}
+
 }

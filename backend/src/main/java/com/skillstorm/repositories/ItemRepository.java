@@ -11,4 +11,8 @@ public interface ItemRepository extends CrudRepository<Item, Long>{
 	
 	@Query("select * from Item i where i.warehouseId = ?1")
 	public Iterable<Item> findItemsByWarehouseId(Long id);
+	
+	public Iterable<Item> findByCandyType_Description(String type);
+	
+	public Iterable<Item> findByWarehouseIdAndCandyType_Description(Long warehouseId, String type);
 }

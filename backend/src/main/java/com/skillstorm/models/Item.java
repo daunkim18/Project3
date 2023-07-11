@@ -23,19 +23,22 @@ public class Item {
 	
 	
 	private int quantity;
-	private Long typeId;
+	
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "type_id")
+	private CandyType candyType;
 	private int popularity;
 
 	public Item() {
-		super();
+		
 	}
 
-	public Item(Long itemId, String itemName, Long warehouseId, Long typeId, int quantity, int popularity) {
+	public Item(Long itemId, String itemName, Long warehouseId, CandyType candyType, int quantity, int popularity) {
 		super();
 		this.itemId = itemId;
 		this.itemName = itemName;
 		this.warehouseId = warehouseId;
-		this.typeId = typeId;
+		this.candyType = candyType;
 		this.quantity = quantity;
 
 	}
@@ -64,12 +67,12 @@ public class Item {
 		this.warehouseId = warehouseId;
 	}
 
-	public Long getType() {
-		return typeId;
+	public CandyType getType() {
+		return candyType;
 	}
 
-	public void setType(Long typeId) {
-		this.typeId = typeId;
+	public void setType(CandyType candyType) {
+		this.candyType = candyType;
 	}
 
 	public int getSoldBy() {

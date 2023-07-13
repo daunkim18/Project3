@@ -8,6 +8,10 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.JsonIdentityReference;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
+
 @Entity
 public class Item {
 
@@ -19,13 +23,17 @@ public class Item {
 
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "warehouse_id")
+	@JsonIdentityReference(alwaysAsId = true)
 	private Warehouse warehouse;
 	
 	
 	private int quantity;
 	
-	@ManyToOne(fetch = FetchType.LAZY)
+	@ManyToOne
 	@JoinColumn(name = "type_id")
+//	@JsonIgnore
+	@JsonIdentityReference(alwaysAsId = true)
+//	@JsonIdentityInfo(generator= ObjectIdGenerators.PropertyGenerator.class, property = "typeId")
 	private CandyType candyType;
 	
 	private int popularity;
@@ -77,11 +85,11 @@ public class Item {
 		this.candyType = candyType;
 	}
 
-	public int getSoldBy() {
+	public int getQuantity() {
 		return quantity;
 	}
 
-	public void setSoldBy(int quantity) {
+	public void setQuantity(int quantity) {
 		this.quantity = quantity;
 	}
 

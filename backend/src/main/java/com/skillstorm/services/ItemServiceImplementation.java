@@ -2,11 +2,12 @@ package com.skillstorm.services;
 
 import java.util.List;
 
+import javax.transaction.Transactional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.skillstorm.models.Item;
-import com.skillstorm.models.Warehouse;
 import com.skillstorm.repositories.ItemRepository;
 
 @Service
@@ -47,6 +48,7 @@ public class ItemServiceImplementation implements ItemService{
 	}
 
 	@Override
+	@Transactional
 	public Item create(Item item) {
 		// TODO Auto-generated method stub
 		return repo.save(item);

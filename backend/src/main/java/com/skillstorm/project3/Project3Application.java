@@ -1,4 +1,4 @@
-package com.skillstorm.training.project3;
+package com.skillstorm.project3;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

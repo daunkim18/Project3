@@ -1,5 +1,7 @@
 package com.skillstorm.controllers;
 
+import java.util.List;
+
 import javax.persistence.EntityManager;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -57,8 +59,8 @@ public class ItemController {
 	}
 	
 	@GetMapping("/warehouses/{id}/items/search")
-	public Iterable<Item> getItemBySearch(@PathVariable("id") Long id, @RequestParam(defaultValue = "all") String type) {
-		return service.findByWarehouseIdAndCandyTypeDescription(id, type);
+	public Iterable<Item> getItemBySearch(@PathVariable("id") Long id, @RequestParam(defaultValue = "all") List<String> type) {
+		return service.findByWarehouseIdAndCandyTypeDescriptionIn(id, type);
 	}
 	
 	@GetMapping("/description")

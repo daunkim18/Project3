@@ -20,5 +20,5 @@ public interface ItemService {
 	
 	public Iterable<Item> findByCandyTypeDescription(String type);
 	
-	public Iterable<Item> findByWarehouseIdAndCandyTypeDescription(Long id, String type);
+	public Iterable<Item> findByWarehouseIdAndCandyTypeDescriptionIn(Long id, List<String> type);
 }

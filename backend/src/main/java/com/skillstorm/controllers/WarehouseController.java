@@ -30,15 +30,7 @@ import com.skillstorm.services.WarehouseService;
 @RequestMapping("/warehouses")
 public class WarehouseController {
 
-    @Autowired
-    private WarehouseRepository warehouseRepo;
-    
-    @Autowired
-    private ItemRepository itemRepo;
-    
-    @Autowired
-    private CandyTypeRepository candyTypeRepo;
-    
+ 
     @Autowired
     private WarehouseService service;
 

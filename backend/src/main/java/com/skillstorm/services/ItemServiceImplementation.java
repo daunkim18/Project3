@@ -58,9 +58,9 @@ public class ItemServiceImplementation implements ItemService{
 	}
 
 	@Override
-	public Iterable<Item> findByWarehouseIdAndCandyTypeDescription(Long id, String type) {
+	public Iterable<Item> findByWarehouseIdAndCandyTypeDescriptionIn(Long id, List<String> type) {
 		// TODO Auto-generated method stub
-		return repo.findByWarehouseIdAndCandyType_Description(id, type);
+		return repo.findByWarehouseIdAndCandyType_DescriptionIn(id, type);
 	}
 
 }

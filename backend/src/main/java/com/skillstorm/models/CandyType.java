@@ -2,6 +2,7 @@ package com.skillstorm.models;
 
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -20,7 +21,7 @@ public class CandyType {
 	 private long typeId;
 	 private String description;
 	 
-	 @OneToMany(mappedBy = "candyType")
+	 @OneToMany(mappedBy = "candyType", cascade = CascadeType.MERGE)
 	 private List<Item> item;
 	 
 	 

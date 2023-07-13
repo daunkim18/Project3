@@ -2,6 +2,7 @@ package com.skillstorm.models;
 
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -24,7 +25,7 @@ public class Warehouse {
     private int capacity;	// capacity in number of items
     
     
-    @OneToMany(mappedBy = "warehouse")
+    @OneToMany(mappedBy = "warehouse", cascade = CascadeType.MERGE)
     private List<Item> item;
 	
     public Warehouse() {}

@@ -20,6 +20,7 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.skillstorm.models.Item;
+import com.skillstorm.models.Warehouse;
 import com.skillstorm.services.ItemService;
 
 
@@ -54,13 +55,13 @@ public class ItemController {
 	//We will have a path variable and request params
 	
 	@GetMapping("/warehouses/{id}/items")
-	public Iterable<Item> getItemByWarehouseId(@PathVariable("id") Long id, @RequestParam(defaultValue = "all") String type) {
-		return service.findItemsByWarehouseId(id);
+	public Iterable<Item> getItemByWarehouseId(@PathVariable("id") Warehouse warehouse, @RequestParam(defaultValue = "all") String type) {
+		return service.findItemsByWarehouse(warehouse);
 	}
 	
 	@GetMapping("/warehouses/{id}/items/search")
-	public Iterable<Item> getItemBySearch(@PathVariable("id") Long id, @RequestParam(defaultValue = "all") List<String> type) {
-		return service.findByWarehouseIdAndCandyTypeDescriptionIn(id, type);
+	public Iterable<Item> getItemBySearch(@PathVariable("id") Warehouse warehouse, @RequestParam(defaultValue = "all") List<String> type) {
+		return service.findByWarehouseAndCandyTypeDescriptionIn(warehouse, type);
 	}
 	
 	@GetMapping("/description")

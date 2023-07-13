@@ -14,11 +14,11 @@ public interface ItemService {
 	
 	public void delete(Long id);
 	
-	public Iterable<Item> findItemsByWarehouseId(Long id);
+	public Iterable<Item> findItemsByWarehouse(Warehouse warehouse);
 	
 	public Item create(Item item);
 	
 	public Iterable<Item> findByCandyTypeDescription(String type);
 	
-	public Iterable<Item> findByWarehouseIdAndCandyTypeDescriptionIn(Long id, List<String> type);
+	public Iterable<Item> findByWarehouseAndCandyTypeDescriptionIn(Warehouse warehouse, List<String> type);
 }

@@ -4,6 +4,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
 
 @Entity
 public class Warehouse {
@@ -16,6 +18,10 @@ public class Warehouse {
     private String state;
     private int capacity;	// capacity in number of items
     private int inventory;  // amount in number of items
+    
+    @OneToMany
+    @JoinColumn(name ="itemId")
+    private Item item;
 	
     public Warehouse() {}
 

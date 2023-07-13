@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.skillstorm.models.Item;
+import com.skillstorm.models.Warehouse;
 import com.skillstorm.repositories.ItemRepository;
 
 @Service
@@ -34,9 +35,9 @@ public class ItemServiceImplementation implements ItemService{
 
 
 	@Override
-	public Iterable<Item> findItemsByWarehouseId(Long id) {
+	public Iterable<Item> findItemsByWarehouse(Warehouse warehouse) {
 		
-		return repo.findItemsByWarehouseId(id);
+		return repo.findItemsByWarehouse(warehouse);
 	}
 
 	@Override
@@ -58,9 +59,9 @@ public class ItemServiceImplementation implements ItemService{
 	}
 
 	@Override
-	public Iterable<Item> findByWarehouseIdAndCandyTypeDescriptionIn(Long id, List<String> type) {
+	public Iterable<Item> findByWarehouseAndCandyTypeDescriptionIn(Warehouse warehouse, List<String> type) {
 		// TODO Auto-generated method stub
-		return repo.findByWarehouseIdAndCandyType_DescriptionIn(id, type);
+		return repo.findByWarehouseAndCandyType_DescriptionIn(warehouse, type);
 	}
 
 }

@@ -13,7 +13,7 @@ public class WarehouseServiceImplementation implements WarehouseService {
 	private WarehouseRepository repo;
 	
 	@Override
-	public Warehouse findById(Long id) {
+	public Warehouse findById(long id) {
 		// TODO Auto-generated method stub
 		return repo.findById(id).orElse(null);
 	}
@@ -31,7 +31,7 @@ public class WarehouseServiceImplementation implements WarehouseService {
 	}
 
 	@Override
-	public void delete(Long warehouseId) {
+	public void delete(long warehouseId) {
 		repo.deleteById(warehouseId);
 		
 	}

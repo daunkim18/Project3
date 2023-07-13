@@ -10,7 +10,7 @@ public class CandyType {
 	
 	 @Id
 	 @GeneratedValue(strategy = GenerationType.IDENTITY)
-	 private Long typeId;
+	 private long typeId;
 	 private String description;
 	 
 	 

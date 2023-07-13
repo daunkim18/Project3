@@ -1,5 +1,7 @@
 package com.skillstorm.models;
 
+import java.util.List;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -11,35 +13,35 @@ import javax.persistence.OneToMany;
 public class Warehouse {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long warehouseId;
+    private long warehouseId;
 
     private String streetAddress;
     private String city;
     private String state;
     private int capacity;	// capacity in number of items
-    private int inventory;  // amount in number of items
+    
     
     @OneToMany
     @JoinColumn(name ="itemId")
-    private Item item;
+    private List<Item> item;
 	
     public Warehouse() {}
 
-	public Warehouse(Long warehouseId, String streetAddress, String city, String state, int capacity, int inventory) {
+	public Warehouse(long warehouseId, String streetAddress, String city, String state, int capacity) {
 		super();
 		this.warehouseId = warehouseId;
 		this.streetAddress = streetAddress;
 		this.city = city;
 		this.state = state;
 		this.capacity = capacity;
-		this.inventory = inventory;
+		
 	}
 
-	public Long getWarehouseId() {
+	public long getWarehouseId() {
 		return warehouseId;
 	}
 
-	public void setWarehouseId(Long warehouseId) {
+	public void setWarehouseId(long warehouseId) {
 		this.warehouseId = warehouseId;
 	}
 
@@ -75,13 +77,7 @@ public class Warehouse {
 		this.capacity = capacity;
 	}
 
-	public int getInventory() {
-		return inventory;
-	}
 
-	public void setInventory(int inventory) {
-		this.inventory = inventory;
-	}
     
     
 

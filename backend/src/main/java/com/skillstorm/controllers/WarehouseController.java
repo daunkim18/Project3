@@ -49,7 +49,7 @@ public class WarehouseController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<Warehouse> findById(@PathVariable("id") Long id) {
+    public ResponseEntity<Warehouse> findById(@PathVariable("id") long id) {
         Warehouse warehouse = service.findById(id);
         if (warehouse != null) {
             return ResponseEntity.ok(warehouse);
@@ -75,7 +75,7 @@ public class WarehouseController {
     
     @DeleteMapping("/{id}")
     @ResponseStatus(code = HttpStatus.NO_CONTENT)
-    public void delete(@PathVariable("id") Long id) {
+    public void delete(@PathVariable("id") long id) {
     	service.delete(id);
     }
 

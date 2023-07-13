@@ -16,7 +16,7 @@ public class ItemServiceImplementation implements ItemService{
 	private ItemRepository repo;
 	
 	@Override
-	public Item findById(Long id) {
+	public Item findById(long id) {
 		// TODO Auto-generated method stub
 		return repo.findById(id).orElse(null);
 	}
@@ -35,13 +35,13 @@ public class ItemServiceImplementation implements ItemService{
 
 
 	@Override
-	public Iterable<Item> findItemsByWarehouse(Warehouse warehouse) {
+	public Iterable<Item> findItemsByWarehouse(long id) {
 		
-		return repo.findItemsByWarehouse(warehouse);
+		return repo.findItemsByWarehouse(id);
 	}
 
 	@Override
-	public void delete(Long id) {
+	public void delete(long id) {
 		repo.deleteById(id);
 		
 	}
@@ -59,9 +59,15 @@ public class ItemServiceImplementation implements ItemService{
 	}
 
 	@Override
-	public Iterable<Item> findByWarehouseAndCandyTypeDescriptionIn(Warehouse warehouse, List<String> type) {
+	public Iterable<Item> findByWarehouse_WarehouseIdAndCandyTypeDescriptionIn(long id, List<String> type) {
 		// TODO Auto-generated method stub
-		return repo.findByWarehouseAndCandyType_DescriptionIn(warehouse, type);
+		return repo.findByWarehouse_WarehouseIdAndCandyType_DescriptionIn(id, type);
+	}
+
+	@Override
+	public int findInventoryCountFromWarehouseId(long id) {
+		// TODO Auto-generated method stub
+		return repo.findInventoryCountFromWarehouseId(id);
 	}
 
 }

@@ -12,7 +12,7 @@ public class CandyTypeServiceImplementation implements CandyTypeService{
 	private CandyTypeRepository repo;
 	
 	@Override
-	public CandyType findById(Long id) {
+	public CandyType findById(long id) {
 		// TODO Auto-generated method stub
 		return repo.findById(id).orElse(null);
 	}
@@ -30,7 +30,7 @@ public class CandyTypeServiceImplementation implements CandyTypeService{
 	}
 
 	@Override
-	public void delete(Long typeId) {
+	public void delete(long typeId) {
 		repo.deleteById(typeId);
 		
 	}
@@ -38,7 +38,7 @@ public class CandyTypeServiceImplementation implements CandyTypeService{
 	@Override
 	public CandyType create(CandyType candyType) {
 		// TODO Auto-generated method stub
-		return null;
+		return repo.save(candyType);
 	}
 
 }

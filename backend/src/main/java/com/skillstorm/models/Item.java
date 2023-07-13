@@ -13,7 +13,7 @@ public class Item {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long itemId;
+	private long itemId;
 
 	private String itemName;
 
@@ -27,13 +27,15 @@ public class Item {
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "type_id")
 	private CandyType candyType;
+	
 	private int popularity;
+	
 
 	public Item() {
 		
 	}
 
-	public Item(Long itemId, String itemName, Warehouse warehouse, CandyType candyType, int quantity, int popularity) {
+	public Item(long itemId, String itemName, Warehouse warehouse, CandyType candyType, int quantity, int popularity) {
 		super();
 		this.itemId = itemId;
 		this.itemName = itemName;
@@ -43,7 +45,7 @@ public class Item {
 
 	}
 
-	public Long getitemId() {
+	public long getitemId() {
 		return itemId;
 	}
 

@@ -44,7 +44,7 @@ public class ItemController {
 
 
 	@GetMapping("/{id}")
-	public ResponseEntity<Item> getItemById(@PathVariable("id") Long id) {
+	public ResponseEntity<Item> getItemById(@PathVariable("id") long id) {
 		Item item = service.findById(id);
 		if (item != null) {
 			return ResponseEntity.ok(item);
@@ -55,13 +55,13 @@ public class ItemController {
 	//We will have a path variable and request params
 	
 	@GetMapping("/warehouses/{id}/items")
-	public Iterable<Item> getItemByWarehouseId(@PathVariable("id") Warehouse warehouse, @RequestParam(defaultValue = "all") String type) {
-		return service.findItemsByWarehouse(warehouse);
+	public Iterable<Item> getItemByWarehouseId(@PathVariable("id") long id, @RequestParam(defaultValue = "all") String type) {
+		return service.findItemsByWarehouse(id);
 	}
 	
 	@GetMapping("/warehouses/{id}/items/search")
-	public Iterable<Item> getItemBySearch(@PathVariable("id") Warehouse warehouse, @RequestParam(defaultValue = "all") List<String> type) {
-		return service.findByWarehouseAndCandyTypeDescriptionIn(warehouse, type);
+	public Iterable<Item> getItemBySearch(@PathVariable("id") long id, @RequestParam(defaultValue = "all") List<String> type) {
+		return service.findByWarehouse_WarehouseIdAndCandyTypeDescriptionIn(id, type);
 	}
 	
 	@GetMapping("/description")
@@ -85,7 +85,7 @@ public class ItemController {
 	
 	@DeleteMapping("/{id}")
     @ResponseStatus(code = HttpStatus.NO_CONTENT)
-    public void delete(@PathVariable("id") Long id) {
+    public void delete(@PathVariable("id") long id) {
     	service.delete(id);
 	}
 	

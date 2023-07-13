@@ -12,10 +12,13 @@ import com.skillstorm.models.Warehouse;
 @Repository
 public interface ItemRepository extends JpaRepository<Item, Long>{
 	
-	@Query("select * from Item i where i.warehouseId = ?1")
-	public Iterable<Item> findItemsByWarehouse(Warehouse warehouse);
+	@Query(value = "select i from Item i where i.warehouse.warehouseId = ?1")
+	public Iterable<Item> findItemsByWarehouse(long id);
+	
+	@Query(value = "SELECT COUNT(*) FROM Item i where i.warehouse.warehouseId = ?1")
+	public int findInventoryCountFromWarehouseId(long id);
 	
 	public Iterable<Item> findByCandyType_Description(String type);
 	
-	public Iterable<Item> findByWarehouseAndCandyType_DescriptionIn(Warehouse warehouse, List<String> type);
+	public Iterable<Item> findByWarehouse_WarehouseIdAndCandyType_DescriptionIn(long warehouseId, List<String> type);
 }

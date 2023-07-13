@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -29,8 +30,8 @@ public class CandyTypeController {
 
 	@Autowired
 	private CandyTypeService service;
-	
-    @Autowired
+
+	@Autowired
 	EntityManager entityManager;
 
 	// Candy Type Endpoints
@@ -42,7 +43,7 @@ public class CandyTypeController {
 	}
 
 	@GetMapping("/{id}")
-	public ResponseEntity<CandyType> findById(@PathVariable("id") Long id) {
+	public ResponseEntity<CandyType> findById(@PathVariable("id") long id) {
 		CandyType candyType = service.findById(id);
 		if (candyType != null) {
 			return ResponseEntity.ok(candyType);
@@ -56,11 +57,17 @@ public class CandyTypeController {
 		CandyType createdCandyType = service.create(candyType);
 		return ResponseEntity.status(HttpStatus.CREATED).body(createdCandyType);
 	}
-	
-	 @PutMapping
-	    @ResponseStatus(code = HttpStatus.ACCEPTED)
-	    public ResponseEntity<CandyType> update(@RequestBody CandyType candyType) {
-	    	CandyType createdCandyType = service.save(candyType);
-	    	return ResponseEntity.status(HttpStatus.ACCEPTED).body(createdCandyType);
-	    }
+
+	@PutMapping
+	@ResponseStatus(code = HttpStatus.ACCEPTED)
+	public ResponseEntity<CandyType> update(@RequestBody CandyType candyType) {
+		CandyType createdCandyType = service.save(candyType);
+		return ResponseEntity.status(HttpStatus.ACCEPTED).body(createdCandyType);
+	}
+
+	@DeleteMapping("/{id}")
+	@ResponseStatus(code = HttpStatus.NO_CONTENT)
+	public void delete(@PathVariable("id") long id) {
+		service.delete(id);
+	}
 }

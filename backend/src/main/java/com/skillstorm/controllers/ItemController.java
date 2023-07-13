@@ -19,8 +19,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.skillstorm.dtos.ItemDto;
 import com.skillstorm.models.Item;
-import com.skillstorm.models.Warehouse;
 import com.skillstorm.services.ItemService;
 
 
@@ -71,14 +71,14 @@ public class ItemController {
 
 	@PostMapping
 	@ResponseStatus(code = HttpStatus.CREATED)
-	public ResponseEntity<Item> createItem(@RequestBody Item item) {
+	public ResponseEntity<Item> createItem(@RequestBody ItemDto item) {
 		Item createdItem = service.save(item);
 		return ResponseEntity.status(HttpStatus.CREATED).body(createdItem);
 	}
 	
     @PutMapping
     @ResponseStatus(code = HttpStatus.ACCEPTED)
-    public ResponseEntity<Item> update(@RequestBody Item item) {
+    public ResponseEntity<Item> update(@RequestBody ItemDto item) {
     	Item createdItem = service.save(item);
     	return ResponseEntity.status(HttpStatus.ACCEPTED).body(createdItem);
     }

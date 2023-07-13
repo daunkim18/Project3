@@ -50,14 +50,15 @@ public class Item {
 		this.warehouse = warehouse;
 		this.candyType = candyType;
 		this.quantity = quantity;
+		this.popularity = popularity;
 
 	}
 
-	public long getitemId() {
+	public long getItemId() {
 		return itemId;
 	}
 
-	public void setId(Long itemId) {
+	public void setItemId(Long itemId) {
 		this.itemId = itemId;
 	}
 

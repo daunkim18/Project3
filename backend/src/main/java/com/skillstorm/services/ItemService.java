@@ -2,21 +2,21 @@ package com.skillstorm.services;
 
 import java.util.List;
 
+import com.skillstorm.dtos.ItemDto;
 import com.skillstorm.models.Item;
-import com.skillstorm.models.Warehouse;
 
 public interface ItemService {
 	public Item findById(long id);
 	
 	public Iterable<Item> findAll();
 	
-	public Item save(Item item);
+	public Item save(ItemDto item);
 	
 	public void delete(long id);
 	
 	public Iterable<Item> findItemsByWarehouse(long id);
 	
-	public Item create(Item item);
+	public Item create(ItemDto item);
 	
 	public Iterable<Item> findByCandyTypeDescription(String type);
 	

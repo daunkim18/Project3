@@ -7,14 +7,25 @@ import javax.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.skillstorm.dtos.ItemDto;
+import com.skillstorm.models.CandyType;
 import com.skillstorm.models.Item;
+import com.skillstorm.models.Warehouse;
+import com.skillstorm.repositories.CandyTypeRepository;
 import com.skillstorm.repositories.ItemRepository;
+import com.skillstorm.repositories.WarehouseRepository;
 
 @Service
 public class ItemServiceImplementation implements ItemService{
 	
 	@Autowired
 	private ItemRepository repo;
+	
+	@Autowired
+	private CandyTypeRepository typeRepo;
+	
+	@Autowired
+	private WarehouseRepository warehouseRepo;
 	
 	@Override
 	public Item findById(long id) {
@@ -29,9 +40,11 @@ public class ItemServiceImplementation implements ItemService{
 	}
 
 	@Override
-	public Item save(Item item) {
-		// TODO Auto-generated method stub
-		return repo.save(item);
+	public Item save(ItemDto item) {
+		Warehouse warehouse = warehouseRepo.findById(item.getWarehouseId()).get();  //orElse throw
+		CandyType candyType = typeRepo.findById(item.getTypeId()).get();
+		Item createdItem = new Item(item.getId(), item.getName(), warehouse, candyType, item.getQuantity(), item.getPopularity() );
+		return repo.save(createdItem);
 	}
 
 
@@ -49,9 +62,11 @@ public class ItemServiceImplementation implements ItemService{
 
 	@Override
 	@Transactional
-	public Item create(Item item) {
-		// TODO Auto-generated method stub
-		return repo.save(item);
+	public Item create(ItemDto item) {
+		Warehouse warehouse = warehouseRepo.findById(item.getWarehouseId()).get();  //orElse throw
+		CandyType candyType = typeRepo.findById(item.getTypeId()).get();
+		Item createdItem = new Item(item.getId(), item.getName(), warehouse, candyType, item.getQuantity(), item.getPopularity() );
+		return repo.save(createdItem);
 	}
 
 	@Override
